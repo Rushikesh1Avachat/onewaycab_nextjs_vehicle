@@ -1,20 +1,13 @@
-import React from 'react'
-import TripleForm from '@/components/TripleForm'
-interface Props {
-  
+import type { Metadata } from 'next'
+import TripleForm from "@/components/TripleForm";
+export const metadata: Metadata = {
+  title: 'Booking Cab',
+  description: 'A Booking Travel Website',
 }
-
-const MainPage = (props: Props) => {
-  return (
-    <div>
-       {/* <section className="triple-form-container py-10 bg-gray-100">
-        <div className="container mx-auto">
-          <TripleForm /> 
-        </div>
-      </section> */}
-    </div>
-  )
+ 
+export default function Page() {
+<div> 
+  {/* <TripleForm/> */}
+</div>
 }
-
-export default MainPage
 

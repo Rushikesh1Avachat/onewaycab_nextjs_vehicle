@@ -11,7 +11,7 @@ export type DestinationProps = {
 const DestinationCard: React.FC<DestinationProps> = ({ title, image }) => {
   return (
     <div className="border rounded-lg overflow-hidden shadow-lg">
-      <Image src={image} alt={title} fill className="w-full h-48 object-cover" />
+      {/* <Image src={image} alt={title} fill className="w-48 h-48 object-cover" /> */}
       <div className="p-4">
         <h2 className="font-bold text-lg">{title}</h2>
       </div>
