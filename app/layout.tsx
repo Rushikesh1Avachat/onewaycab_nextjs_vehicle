@@ -5,13 +5,12 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection"
 import Footer from "@/components/Footer";
-import DestinationCard from "@/components/DestinationCard";
 
 import Image from "next/image";
 import ServiceCard from "@/components/ServicesCard";
 import SpecializedCard from "@/components/SpecailizedCard";
 import CTA from "@/components/CTA";
-
+import DestinationCard, { DestinationProps } from '../components/DestinationCard';
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -30,39 +29,40 @@ const transportModes = [
   { mode: 'Rickshaw', imageSrc: '/rickshaw.jpg', description:"Oneways Cabs are a revolutionary concept in the transportation industry that allows you to book a one-way journey." },
   { mode: 'ST Buses', imageSrc: '/st-bus.jpg' , description:"Oneways Cabs are a revolutionary concept in the transportation industry that allows you to book a one-way journey."},
 ];
-const destinations = [
+
+
+type Destination = {
+  title: string;
+  image: string;
+};
+
+// Example data of destinations
+const destinations: Destination[] = [
   {
-    name: 'Mumbai',
-    imageUrl: '/mumbai city.jpg',
-    description: 'The city that never sleeps.',
+    title: 'Mumbai',
+    image: '/mumbai-city.jpg',
   },
   {
-    name: 'Pune',
-    imageUrl: '/pune.jpg',
-    description: 'The cultural capital of Maharashtra.',
+    title: 'Mumbai',
+    image: '/mumbai-city.jpg',
   },
   {
-    name: 'Nashik',
-    imageUrl: '/nashik.jpg',
-    description: 'The Wine Capital of India.',
+    title: 'Mumbai',
+    image: '/mumbai-city.jpg',
   },
   {
-    name: 'Aurangabad',
-    imageUrl: '/aurangabad.jpg',
-    description: 'Famous for its historical monuments.',
+    title: 'Mumbai',
+    image: '/mumbai-city.jpg',
   },
   {
-    name: 'Mahabaleshwar',
-    imageUrl: '/mahabaleshwar.jpg',
-    description: 'A hill station with lush greenery.',
+    title: 'Mumbai',
+    image: '/mumbai-city.jpg',
   },
   {
-    name: 'Kolhapur',
-    imageUrl: '/kolhapur.jpg',
-    description: 'Known for its rich history and cuisine.',
+    title: 'Mumbai',
+    image: '/mumbai-city.jpg',
   },
 ];
-
 const locations = [
   {
     title: "Gateway of India, Mumbai",
@@ -118,16 +118,15 @@ export default function RootLayout({
         {children}
        {/* <DestinationCard title={title} image={image || "/herocab-banner.jpg"}/> */}
        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
-        {/* <h1 className="text-center text-2xl font-bold text-black">Popular Destination</h1> */}
-      {destinations.map((destination, index) => (
-        <DestinationCard
-          key={index}
-          name={destination.name}
-          imageUrl={destination.imageUrl}
-          description={destination.description}
-        />
-      ))}
-    </div>
+  {/* Uncomment the header if needed */}
+  {/* <h1 className="text-center text-2xl font-bold text-black">Popular Destinations</h1> */}
+  {destinations.map((destination, index) => (
+  <div key={index} className="m-4">
+    <DestinationCard title={destination.title} image={destination.image} />
+  </div>
+))}
+
+</div>
     <div className="container mx-auto py-12">
       {/* Transport Cards Section */}
       <h1 className="text-4xl font-bold text-center mb-8">Our Services</h1>
@@ -136,7 +135,16 @@ export default function RootLayout({
           <ServiceCard key={index} mode={transport.mode} imageSrc={transport.imageSrc} description={transport.description} />
         ))}
       </div>
+      <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-6 text-center">Explore One-Way Travel Destinations</h1>
+      <div className="flex flex-wrap justify-center">
+        {destinations.map((destination, index) => (
+          <div key={index} className="m-4">
+            <DestinationCard title={destination.title} image={destination.image} />
+          </div>
+        ))}
       </div>
+    </div>
       <h1 className="text-2xl text-center text-black font-bold mt-10">Our Specialization</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6">
      
