@@ -9,7 +9,7 @@ const Navbar = (props: Props) => {
     <nav className='relative z-100 w-full duration-300 bg-white shadow-xl px-10 py-10 overflow-hidden   '>
         <div className='flex items-center justify-between  '>
          <div>
-            <span className='text-3xl font-bold font-serif text-red-900'> <Link href="/">AimCab </Link> </span>
+            <span className='text-3xl font-bold font-serif text-red-900'> <Link href="/">Pareshwar Cab </Link> </span>
          </div>
          <div className="hidden md:block">
           <ul className='flex items-center justify-center gap-8'>
